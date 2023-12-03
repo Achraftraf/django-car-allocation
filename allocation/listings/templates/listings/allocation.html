@@ -1,0 +1,15 @@
+<!-- allocation_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Allocation List</title>
+</head>
+<body>
+    <h1>fdghthtrgft</h1>
+    <ul>
+        {% for allocation in allocations %}
+            <li>ID: {{ allocation.allocation_id }}, Date: {{ allocation.allocation_date }}, Price: {{ allocation.allocation_price }}, Number of Days: {{ allocation.allocation_nbr_days }}, Client ID: {{ allocation.client_id }}, Car ID: {{ allocation.car_id }}</li>
+        {% endfor %}
+    </ul>
+</body>
+</html>

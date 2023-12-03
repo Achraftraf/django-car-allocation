@@ -20,9 +20,10 @@ from django.urls import path
 from listings import views 
 
 
-
+ 
 urlpatterns = [
     path('admin/', admin.site.urls),
-    path('index/', views.index, name='views.index'),
-    path('allocation_list/', views.allocation_list, name='views.allocation_list'),
+    path('index/', views.index),
+    # path('allocation_list/', views.allocation_list, name='views.allocation_list'),
+    path('allocation/', views.allocationlist, name='views.allocation'),
 ]

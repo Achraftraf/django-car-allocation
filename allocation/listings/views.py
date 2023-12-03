@@ -27,3 +27,7 @@ def allocation_list(request):
     
     return HttpResponse(allocation_list_html)
 
+def allocationlist(request):
+    allocations = Allocation.objects.all()
+    return render(request, 'listings/allocation.html', {'allocations': allocations})
+
