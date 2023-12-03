@@ -24,4 +24,5 @@ from listings import views
 urlpatterns = [
     path('admin/', admin.site.urls),
     path('index/', views.index, name='views.index'),
+    path('allocation_list/', views.allocation_list, name='views.allocation_list'),
 ]
