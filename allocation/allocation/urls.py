@@ -26,4 +26,7 @@ urlpatterns = [
     path('index/', views.index),
     # path('allocation_list/', views.allocation_list, name='views.allocation_list'),
     path('allocation/', views.allocationlist, name='views.allocation'),
+    path('allocation/create/', views.create_allocation, name='create_allocation'),
+    path('allocation/<int:pk>/update/', views.update_allocation, name='update_allocation'),
+    path('allocation/<int:pk>/delete/', views.delete_allocation, name='delete_allocation'),
 ]
