@@ -1,15 +1,45 @@
-<!-- allocation_list.html -->
 <!DOCTYPE html>
 <html>
 <head>
     <title>Allocation List</title>
+    <!-- Bootstrap CSS CDN link -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+    <style>
+        /* Additional custom styles can be added here */
+    </style>
 </head>
 <body>
-    <h1>fdghthtrgft</h1>
-    <ul>
-        {% for allocation in allocations %}
-            <li>ID: {{ allocation.allocation_id }}, Date: {{ allocation.allocation_date }}, Price: {{ allocation.allocation_price }}, Number of Days: {{ allocation.allocation_nbr_days }}, Client ID: {{ allocation.client_id }}, Car ID: {{ allocation.car_id }}</li>
-        {% endfor %}
-    </ul>
+    <div class="container mt-4">
+        <h1>Allocation List</h1>
+        <a href="{% url 'create_allocation' %}" class="btn btn-success mt-3">Create New Allocation</a>
+        <div class="row">
+            <div class="col">
+                <ul class="list-group">
+                    {% for allocation in allocations %}
+                        <li class="list-group-item">
+                            <strong>ID:</strong> {{ allocation.allocation_id }}<br>
+                            <strong>Date:</strong> {{ allocation.allocation_date }}<br>
+                            <strong>Price:</strong> {{ allocation.allocation_price }}<br>
+                            <strong>Number of Days:</strong> {{ allocation.allocation_nbr_days }}<br>
+                            <strong>Client ID:</strong> {{ allocation.client_id }}<br>
+                            <strong>Car ID:</strong> {{ allocation.car_id }}<br>
+                            
+                            <!-- Update Button -->
+                            <a href="{% url 'update_allocation' allocation.pk %}" class="btn btn-primary">Update</a>
+                            
+                            <!-- Delete Button -->
+                            <form method="post" action="{% url 'delete_allocation' allocation.pk %}" style="display: inline;">
+                                {% csrf_token %}
+                                <button type="submit" class="btn btn-danger">Delete</button>
+                            </form>
+                        </li>
+                    {% endfor %}
+                </ul>
+            </div>
+        </div>
+    </div>
+
+    <!-- Bootstrap JS CDN link (Optional, for certain Bootstrap features) -->
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
 </body>
 </html>
